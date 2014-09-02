@@ -59,6 +59,10 @@ server {
     # If you don't find the filename in the static files
     # Then request it from the unicorn server
     try_files $uri @unicorn;
+
+    # Allow asset requests from our other domains. Comply with CORS.
+    # TODO: Update to pull in only our domains from config file
+    add_header Access-Control-Allow-Origin *;
   }
 
   error_page 500 502 503 504 /500.html;
@@ -119,6 +123,10 @@ server {
     # If you don't find the filename in the static files
     # Then request it from the unicorn server
     try_files $uri @unicorn;
+
+    # Allow asset requests from our other domains. Comply with CORS.
+    # TODO: Update to pull in only our domains from config file
+    add_header Access-Control-Allow-Origin *;
   }
 
   error_page 500 502 503 504 /500.html;
