@@ -18,6 +18,8 @@ server {
 
   root <%= @application[:absolute_document_root] %>;
 
+  client_max_body_size 200M;
+
   <% if @application[:nginx] && @application[:nginx][:client_max_body_size] %>
     client_max_body_size <%= @application[:nginx][:client_max_body_size] %>;
   <% end %>
@@ -87,6 +89,8 @@ server {
   keepalive_timeout 5;
 
   root <%= @application[:absolute_document_root] %>;
+
+  client_max_body_size 200M;
 
   <% if @application[:nginx] && @application[:nginx][:client_max_body_size] %>
     client_max_body_size <%= @application[:nginx][:client_max_body_size] %>;
